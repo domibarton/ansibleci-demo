@@ -15,4 +15,4 @@ emo_app_path: '/opt/{{ emo_app_name }}'
 emo_app_repo: https://github.com/domibarton/emo-app.git
 
 # Git tag of the app.
-emo_app_version: v1.0.0
+emo_app_version: master
