@@ -1,0 +1,3 @@
+[submodule "ansibleci"]
+	path = ansibleci
+	url = git@github.com:confirm/ansibleci.git
