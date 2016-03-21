@@ -1,0 +1,16 @@
+---
+- name: update cache
+  apt:
+    update_cache: True
+  when: apt_update
+  tags:
+    - apt
+    - software
+
+- name: update packages
+  apt:
+    upgrade: full
+  when: apt_upgrade
+  tags:
+    - apt
+    - software

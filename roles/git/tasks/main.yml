@@ -1,0 +1,8 @@
+---
+- name: ensure git is installed
+  apt:
+    name: git
+    state: present
+  tags:
+    - git
+    - software

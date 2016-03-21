@@ -1,0 +1,8 @@
+---
+- name: restart emo app
+  service:
+    name: '{{ emo_app_name }}'
+    state: restarted
+  tags:
+    - emo_app
+    - service

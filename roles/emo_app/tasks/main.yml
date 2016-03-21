@@ -1,0 +1,74 @@
+---
+- name: ensure group exists
+  group:
+    name: '{{ emo_app_name }}'
+    gid: '{{ emo_app_gid }}'
+  tags:
+    - emo_app
+    - user
+
+- name: ensure user exists
+  user:
+    name: '{{ emo_app_name }}'
+    uid: '{{ emo_app_uid }}'
+    group: '{{ emo_app_name }}'
+  tags:
+    - emo_app
+    - user
+
+- name: ensure directory exists
+  file:
+    state: directory
+    path: '{{ emo_app_path }}'
+    owner: '{{ emo_app_name }}'
+    group: '{{ emo_app_name }}'
+    mode: 0750
+  tags:
+    - emo_app
+    - user
+
+- name: clone application repository
+  git:
+    repo: '{{ emo_app_repo }}'
+    dest: '{{ emo_app_path }}'
+    version: '{{ emo_app_version }}'
+  tags:
+    - emo_app
+    - software
+
+- name: ensure dependencies are installed
+  pip:
+    requirements: '{{ emo_app_path }}/requirements.txt'
+    state: present
+  tags:
+    - emo_app
+    - pip
+    - software
+
+- name: configure systemd service unit
+  template:
+    src: systemd.service.j2
+    dest: '/etc/systemd/system/{{ emo_app_name }}.service'
+    owner: root
+    group: root
+    mode: 0644
+  register: result
+  tags:
+    - emo_app
+    - service
+
+- name: reload systemd daemon
+  command: systemctl daemon-reload
+  when: result|changed
+  tags:
+    - emo_app
+    - service
+
+- name: ensure emo app is started
+  service:
+    name: '{{ emo_app_name }}'
+    state: started
+    enabled: True
+  tags:
+    - emo_app
+    - service

@@ -1,0 +1,3 @@
+---
+backend_url: 'http://localhost:5001'
+image_url: 'https://s3-us-west-2.amazonaws.com/s3.cloud-demo.confirm.ch/{image}'

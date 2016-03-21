@@ -1,0 +1,12 @@
+[Unit]
+Description=EMO application
+After=network.target
+
+[Service]
+User=emo_app
+Group=emo_app
+WorkingDirectory={{ emo_app_path }}
+ExecStart={{ emo_app_path }}/app/app.py
+
+[Install]
+WantedBy=multi-user.target

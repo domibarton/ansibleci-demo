@@ -1,0 +1,21 @@
+---
+- name: configure EMO app
+
+  hosts:
+    - all
+
+  roles:
+    - emo_app
+
+  post_tasks:
+
+    - name: check app state
+      wait_for:
+        port: 5000
+        delay: 3
+        timeout: 5
+
+  serial: 1
+  max_fail_percentage: 25
+
+  become: True

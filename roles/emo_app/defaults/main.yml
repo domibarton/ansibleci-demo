@@ -1,0 +1,18 @@
+---
+# UID.
+emo_app_uid: 888
+
+# GID.
+emo_app_gid: 888
+
+# Name of the EMO app.
+emo_app_name: 'emo_app'
+
+# Path of the EMO app.
+emo_app_path: '/opt/{{ emo_app_name }}'
+
+# Git repository URL of the app.
+emo_app_repo: https://github.com/domibarton/emo-app.git
+
+# Git tag of the app.
+emo_app_version: v1.0.0
