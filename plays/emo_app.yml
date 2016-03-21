@@ -15,7 +15,4 @@
         delay: 3
         timeout: 5
 
-  serial: 1
-  max_fail_percentage: 25
-
   become: True
