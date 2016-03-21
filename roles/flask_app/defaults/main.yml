@@ -1,8 +1,0 @@
----
-flask_app_uid: 888
-
-flask_app_gid: 888
-
-flask_app_name: 'flask_app'
-
-flask_app_path: '/opt/{{ flask_app_name }}'
