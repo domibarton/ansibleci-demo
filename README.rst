@@ -1,5 +1,5 @@
-Cloud Demo Ansible Repository
-=============================
+ansibleci Demo Repository
+=========================
 
 Purpose
 -------
