@@ -1,0 +1,7 @@
+---
+- name: install tcpdump
+  apt:
+    name: tcpdump
+    state: latest
+  tags: tcpdump
+  notify: send email
