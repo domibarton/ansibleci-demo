@@ -64,6 +64,17 @@
     - emo_app
     - service
 
+- name: configure emo app
+  template:
+    src: config.py.j2
+    dest: '{{ emo_app_path }}/app/config.py'
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - emo_app
+    - config
+
 - name: ensure emo app is started
   service:
     name: '{{ emo_app_name }}'
