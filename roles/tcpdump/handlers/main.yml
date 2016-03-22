@@ -1,0 +1,4 @@
+---
+- name: send email
+  command: whoami
+  tags: tcpdump
