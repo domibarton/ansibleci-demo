@@ -1,0 +1,17 @@
+---
+variables:
+  default:
+    blah: 'hi there'
+
+templates:
+  - playbook: 'plays/emo_app.yml'
+    description: 'hello world {blah}'
+    extra_vars:
+      foo: 'bar'
+      bar: 'foo'
+      hello: 123
+      world: True
+      meh:
+        - 1
+        - 2
+        - 3
